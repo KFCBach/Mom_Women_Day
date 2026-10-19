@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chúc mừng 20/10 mẹ yêu ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Be+Vietnam+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rose: #e8798f;
+      --rose-dark: #b84a63;
+      --cream: #fff6f3;
+      --ink: #4a2c35;
+      --muted: #8a6470;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Be Vietnam Pro", sans-serif;
+      color: var(--ink);
+      background: linear-gradient(160deg, #fff6f3 0%, #ffe3e9 50%, #fdf0f5 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .petal {
+      position: fixed;
+      top: -40px;
+      width: 14px;
+      height: 18px;
+      border-radius: 0 100% 0 100%;
+      opacity: 0.7;
+      pointer-events: none;
+      animation: fall linear forwards;
+      z-index: 0;
+    }
+
+    @keyframes fall {
+      to { transform: translateY(110vh) rotate(720deg); }
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 60px 22px 80px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rose-dark);
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(38px, 7vw, 64px);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--rose-dark);
+    }
+
+    h1 em {
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    .sub {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 17px;
+      font-weight: 300;
+    }
+
+    .photo-section {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 56px;
+    }
+
+    .photo-frame {
+      position: relative;
+      background: #fff;
+      padding: 12px;
+      border-radius: 6px;
+      box-shadow: 0 18px 40px rgba(184, 74, 99, 0.18);
+      transform: rotate(-1.5deg);
+      transition: transform 0.4s ease;
+      max-width: 420px;
+      width: 100%;
+    }
+
+    .photo-frame:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+
+    .photo-frame img {
+      width: 100%;
+      display: block;
+      border-radius: 3px;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+
+    /* ---------- Nút bấm ---------- */
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      font-family: "Be Vietnam Pro", sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 14px 26px;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      background: #fff;
+      color: var(--rose-dark);
+      box-shadow: 0 8px 20px rgba(184, 74, 99, 0.15);
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn.active {
+      background: var(--rose-dark);
+      color: #fff;
+    }
+
+    /* ---------- Panel ---------- */
+    .panel {
+      display: none;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(232, 121, 143, 0.25);
+      border-radius: 22px;
+      padding: 36px 28px;
+      box-shadow: 0 12px 34px rgba(184, 74, 99, 0.1);
+      margin: 0 auto 56px;
+      max-width: 760px;
+      animation: rise 0.5s ease;
+    }
+
+    .panel.show {
+      display: block;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .panel h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 30px;
+      text-align: center;
+      color: var(--rose-dark);
+      margin-bottom: 10px;
+    }
+
+    .panel .intro {
+      text-align: center;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 26px;
+    }
+
+    /* Panel 1: những điều con yêu ở mẹ */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 18px;
+    }
+
+    .feature {
+      background: var(--cream);
+      border-radius: 16px;
+      padding: 22px 20px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-3px);
+      border-color: rgba(232, 121, 143, 0.4);
+    }
+
+    .feature .icon {
+      font-size: 26px;
+      margin-bottom: 8px;
+    }
+
+    .feature h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 19px;
+      color: var(--rose-dark);
+      margin-bottom: 6px;
+    }
+
+    .feature p {
+      font-size: 15px;
+      line-height: 1.7;
+      display: none;
+    }
+
+    .feature.open p {
+      display: block;
+      animation: rise 0.4s ease;
+    }
+
+    /* Panel 2: mong ước */
+    .wishes {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+
+    .wishes li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--cream);
+      border-radius: 14px;
+      padding: 16px 20px;
+      font-size: 16px;
+      line-height: 1.6;
+      opacity: 0;
+      transform: translateX(-12px);
+    }
+
+    .wishes li.show {
+      opacity: 1;
+      transform: translateX(0);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .wishes .wish-icon {
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .wishes-hint {
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 20px;
+      font-style: italic;
+    }
+
+    /* Panel 3: lời chúc */
+    .letter p {
+      font-size: 17px;
+      line-height: 1.9;
+      margin-bottom: 16px;
+      font-weight: 300;
+      text-align: center;
+    }
+
+    .letter .sign {
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-size: 22px;
+      color: var(--rose-dark);
+      margin-top: 22px;
+      font-weight: 400;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 40px;
+    }
+
+    .heart {
+      display: inline-block;
+      color: var(--rose);
+      animation: beat 1.4s ease-in-out infinite;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      15% { transform: scale(1.2); }
+      30% { transform: scale(1); }
+    }
+
+    @media (max-width: 520px) {
+      .panel { padding: 28px 18px; }
+      .letter p { font-size: 16px; }
+      .btn { font-size: 15px; padding: 12px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+
+    <header>
+      <div class="tag">Chúc mừng 20/10</div>
+      <h1>Gửi người <em>mẹ</em> của con</h1>
+      <p class="sub">Cảm ơn mẹ vì tất cả những gì mẹ đã dành cho con.</p>
+    </header>
+
+    <section class="photo-section">
+      <div class="photo-frame">
+        <!-- Đặt ảnh tên mom.jpg cùng thư mục với file này -->
+        <img src="mom.jpg" alt="Mẹ">
+      </div>
+    </section>
+
+    <!-- Ba nút chính -->
+    <div class="actions">
+      <button class="btn" data-target="panel-look">💭 Con yêu mẹ vì điều gì</button>
+      <button class="btn" data-target="panel-wish">🌠 Mong ước của con</button>
+      <button class="btn" data-target="panel-letter">💌 Lời chúc</button>
+    </div>
+
+    <!-- Panel 1: những điều con yêu ở mẹ -->
+    <section class="panel" id="panel-look">
+      <h2>Những điều con yêu ở mẹ</h2>
+      <p class="intro">Bấm vào từng phần để xem con nghĩ gì.</p>
+      <div class="features">
+        <div class="feature">
+          <div class="icon">🌷</div>
+          <h3>Nụ cười</h3>
+          <p>Nụ cười của mẹ là điều con nhớ nhất mỗi khi nghĩ về nhà. Chỉ cần thấy mẹ cười là mọi mệt mỏi của con đều tan đi.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🤲</div>
+          <h3>Đôi tay</h3>
+          <p>Đôi tay mẹ đã nấu bao bữa cơm, vá bao nhiêu áo quần, và ôm con mỗi lần con buồn. Con luôn biết nơi đó luôn ấm áp.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">👀</div>
+          <h3>Ánh mắt</h3>
+          <p>Ánh mắt mẹ nhìn con lúc nào cũng dịu dàng, như thể con là điều quan trọng nhất trên đời. Con luôn cảm thấy mình được tin tưởng.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🕊️</div>
+          <h3>Sự hy sinh</h3>
+          <p>Mẹ đã đặt con lên trên hết, và đôi khi quên đi chính mình. Con biết ơn mẹ nhiều hơn những gì con có thể nói ra.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Panel 2: mong ước -->
+    <section class="panel" id="panel-wish">
+      <h2>Những điều con mong cho mẹ</h2>
+      <p class="intro">Từng điều một, con gửi đến mẹ.</p>
+      <ul class="wishes">
+        <li><span class="wish-icon">🌿</span><span>Mẹ luôn khỏe mạnh, ăn uống đủ đầy và đi khám sức khỏe đều đặn để con yên tâm.</span></li>
+        <li><span class="wish-icon">🛋️</span><span>Mẹ được nghỉ ngơi nhiều hơn, để người khác chăm sóc mẹ một chút, mẹ nhé.</span></li>
+        <li><span class="wish-icon">☀️</span><span>Lòng mẹ luôn bình yên, những lo toan của cuộc sống không làm mẹ mất đi nụ cười.</span></li>
+        <li><span class="wish-icon">✈️</span><span>Mẹ có những chuyến đi mình hằng mơ ước, nơi nào mẹ muốn đến, con sẽ đưa mẹ đi.</span></li>
+        <li><span class="wish-icon">💞</span><span>Mẹ con mình luôn gần gũi, luôn hiểu và thương nhau như bây giờ, qua mọi năm tháng.</span></li>
+      </ul>
+      <p class="wishes-hint">Con chỉ mong mẹ luôn hạnh phúc, theo cách mẹ muốn.</p>
+    </section>
+
+    <!-- Panel 3: lời chúc -->
+    <section class="panel letter" id="panel-letter">
+      <h2>Gửi mẹ</h2>
+      <p class="intro">&nbsp;</p>
+      <p>Chúc mẹ ngày 20/10 thật vui, thật an lành và luôn rạng rỡ như mùa xuân.</p>
+      <p>Cảm ơn mẹ vì đã sinh con ra, đã nuôi con khôn lớn, đã dạy con biết yêu thương và sống tử tế.</p>
+      <p>Con hy vọng năm nào con cũng được ở bên mẹ và nhìn thấy mẹ cười thật tươi. <span class="heart">❤</span></p>
+      <div class="sign">Con yêu mẹ nhiều</div>
+    </section>
+
+    <footer>
+      Made with <span class="heart">❤</span> for you
+    </footer>
+
+  </div>
+
+  <script>
+    // Hoa rơi nhẹ nhàng
+    const colors = ["#ffd1db", "#e8798f", "#f7a8b8", "#ffe3e9"];
+    function spawnPetal() {
+      const p = document.createElement("div");
+      p.className = "petal";
+      p.style.left = Math.random() * 100 + "vw";
+      p.style.background = `radial-gradient(circle at 30% 30%, #fff, ${colors[Math.floor(Math.random() * colors.length)]})`;
+      const dur = 6 + Math.random() * 6;
+      p.style.animationDuration = dur + "s";
+      p.style.transform = `scale(${0.6 + Math.random() * 0.8})`;
+      document.body.appendChild(p);
+      setTimeout(() => p.remove(), dur * 1000);
+    }
+    setInterval(spawnPetal, 500);
+
+    // Mở/đóng từng panel (chỉ một panel mở cùng lúc)
+    const buttons = document.querySelectorAll(".btn");
+    const panels = document.querySelectorAll(".panel");
+
+    function showPanel(id) {
+      panels.forEach(p => p.classList.toggle("show", p.id === id && !p.classList.contains("show")));
+      buttons.forEach(b => b.classList.toggle("active", b.dataset.target === id && document.getElementById(id).classList.contains("show")));
+
+      const panel = document.getElementById(id);
+      if (panel.classList.contains("show")) {
+        if (id === "panel-wish") revealWishes(panel);
+        panel.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => showPanel(btn.dataset.target));
+    });
+
+    // Bấm từng phần để mở mô tả
+    document.querySelectorAll(".feature").forEach(f => {
+      f.addEventListener("click", () => f.classList.toggle("open"));
+    });
+
+    // Mong ước hiện lần lượt
+    function revealWishes(panel) {
+      const items = panel.querySelectorAll(".wishes li");
+      items.forEach(li => li.classList.remove("show"));
+      items.forEach((li, i) => {
+        setTimeout(() => li.classList.add("show"), 300 * i);
+      });
+    }
+  </script>
+
+</body>
+</html>
